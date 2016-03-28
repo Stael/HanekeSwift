@@ -27,10 +27,13 @@ public class NetworkFetcher<T : DataConvertible> : Fetcher<T> {
     
     let URL : NSURL
     
-    public init(URL : NSURL) {
+    public convenience init(URL : NSURL) {
+        self.init(URL: URL, key: URL.absoluteString)
+    }
+    
+    public init(URL : NSURL, key: String) {
         self.URL = URL
-
-        let key =  URL.absoluteString
+    
         super.init(key: key)
     }
     
